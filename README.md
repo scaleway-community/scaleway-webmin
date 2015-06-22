@@ -8,7 +8,7 @@ Scripts to build the official Virtualmin image on Scaleway
 
 This image is built using [Image Tools](https://github.com/scaleway/image-tools) and depends on the official [Ubuntu](https://github.com/scaleway/image-ubuntu) image.
 
-<img src="http://upload.wikimedia.org/wikipedia/commons/8/88/Ovpntech_logo-s_REVISED.png" width="350px" />
+![](https://www.virtualmin.com/images/virtualmin-logo-220x45.png)
 
 
 ---
