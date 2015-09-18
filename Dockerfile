@@ -90,6 +90,13 @@ RUN wget http://prdownloads.sourceforge.net/webadmin/webmin_${WEBMIN_VERSION}_al
  && dpkg -i webmin_${WEBMIN_VERSION}_all.deb \
  && rm -f webmin_${WEBMIN_VERSION}_all.deb
 
+RUN sed -i "s/smtpd_use_tls=yes/smtpd_use_tls=no/" /etc/postfix/main.cf \
+ && sed -i "s/inet_interfaces = .*/inet_interfaces = localhost/" /etc/postfix/main.cf
+
+ADD ./patches/etc/ /etc/
+ADD ./patches/root/ /root/
+ADD ./patches/usr/local/ /usr/local/
+
 
 # Clean rootfs from image-builder
 RUN /usr/local/sbin/builder-leave
