@@ -1,14 +1,14 @@
-NAME =			virtualmin
+NAME =			webmin
 VERSION =		latest
 VERSION_ALIASES =	
-TITLE =			Virtualmin
-DESCRIPTION =		Virtualmin
-SOURCE_URL =		https://github.com/scaleway/image-app-virtualmin
-VENDOR_URL =		http://www.virtualmin.com
+TITLE =			Webmin
+DESCRIPTION =		Webmin
+SOURCE_URL =		https://github.com/scaleway/image-app-webmin
+VENDOR_URL =		http://www.webmin.com
 
 IMAGE_VOLUME_SIZE =     150G
 IMAGE_BOOTSCRIPT =      stable
-IMAGE_NAME =            Virtualmin
+IMAGE_NAME =            Webmin
 
 
 ## Image tools  (https://github.com/scaleway/image-tools)
