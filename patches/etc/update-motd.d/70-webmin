@@ -4,9 +4,9 @@ PUBLIC_IP=$(oc-metadata --cached PUBLIC_IP_ADDRESS)
 
 cat <<EOF
 Hi Cloud Rider,
-Welcome to the Virtualmin image!
+Welcome to the Webmin image!
 Login at https://${PUBLIC_IP}:10000.
-Login/password is root/{virtualmin_root_password}
+Login/password is root/{webmin_root_password}
 MySQL is configured for user root with password {mysql_root_password}.
 Enjoy!
 EOF

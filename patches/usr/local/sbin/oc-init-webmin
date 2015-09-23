@@ -6,13 +6,13 @@
 export DEBIAN_FRONTEND=noninteractive
 
 MYSQL_ROOT_PASSWORD=$(head /dev/urandom -c 512 | sha1sum | awk '// { print $1; }')
-VIRTUALMIN_ROOT_PASSWORD=$(head /dev/urandom -c 512 | sha1sum | awk '// { print $1; }')
+WEBMIN_ROOT_PASSWORD=$(head /dev/urandom -c 512 | sha1sum | awk '// { print $1; }')
 
 # MOTD & README
-sed -i "s/{mysql_root_password}/$MYSQL_ROOT_PASSWORD/" /etc/update-motd.d/70-virtualmin
+sed -i "s/{mysql_root_password}/$MYSQL_ROOT_PASSWORD/" /etc/update-motd.d/70-webmin
 sed -i "s/{mysql_root_password}/$MYSQL_ROOT_PASSWORD/" /root/README
-sed -i "s/{virtualmin_root_password}/$VIRTUALMIN_ROOT_PASSWORD/" /etc/update-motd.d/70-virtualmin
-sed -i "s/{virtualmin_root_password}/$VIRTUALMIN_ROOT_PASSWORD/" /root/README
+sed -i "s/{webmin_root_password}/$WEBMIN_ROOT_PASSWORD/" /etc/update-motd.d/70-webmin
+sed -i "s/{webmin_root_password}/$WEBMIN_ROOT_PASSWORD/" /root/README
 
 # Configure postfix
 sed -i "s/mydestination = .*/mydestination = $(/usr/local/bin/oc-metadata --cached ID).pub.cloud.scaleway.com, localhost.localdomain, localhost/g" /etc/postfix/main.cf
@@ -29,10 +29,10 @@ chmod 1777 /tmp
 /etc/init.d/mysql start
 mysqladmin -u root password $MYSQL_ROOT_PASSWORD
 
-# Set virtualmin password
-/usr/share/webmin/changepass.pl /etc/webmin root $VIRTUALMIN_ROOT_PASSWORD
+# Set webmin password
+/usr/share/webmin/changepass.pl /etc/webmin root $WEBMIN_ROOT_PASSWORD
 /etc/init.d/webmin restart
 
 # this service is only needed on the first boot so we remove it here.
-rm -f /etc/init/init-virtualmin.conf
-rm -f /usr/local/sbin/oc-init-virtualmin
+rm -f /etc/init/init-webmin.conf
+rm -f /usr/local/sbin/oc-init-webmin

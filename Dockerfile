@@ -1,4 +1,4 @@
-## -*- docker-image-name: "scaleway/virtualmin:latest" -*-
+## -*- docker-image-name: "scaleway/webmin:latest" -*-
 FROM scaleway/ubuntu:trusty
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
 

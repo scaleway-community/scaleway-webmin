@@ -1,14 +1,14 @@
-# Official Virtualmin image on Scaleway
+# Official Webmin image on Scaleway
 
-[![Travis](https://img.shields.io/travis/scaleway/image-app-virtualmin.svg)](https://travis-ci.org/scaleway/image-app-virtualmin)
-[![Scaleway ImageHub](https://img.shields.io/badge/ImageHub-view-ff69b4.svg)](https://hub.scaleway.com/virtualmin.html)
+[![Travis](https://img.shields.io/travis/scaleway/image-app-webmin.svg)](https://travis-ci.org/scaleway/image-app-webmin)
+[![Scaleway ImageHub](https://img.shields.io/badge/ImageHub-view-ff69b4.svg)](https://hub.scaleway.com/webmin.html)
 [![Run on Scaleway](https://img.shields.io/badge/Scaleway-run-69b4ff.svg)](https://cloud.scaleway.com/#/servers/new?image=coming-soon)
 
-Scripts to build the official Virtualmin image on Scaleway
+Scripts to build the official Webmin image on Scaleway
 
 This image is built using [Image Tools](https://github.com/scaleway/image-tools) and depends on the official [Ubuntu](https://github.com/scaleway/image-ubuntu) image.
 
-![](https://www.virtualmin.com/images/virtualmin-logo-220x45.png)
+![](https://www.webmin.com/images/webmin-logo-220x45.png)
 
 
 ---
