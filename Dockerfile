@@ -85,7 +85,7 @@ RUN apt-get update \
     perl \
     python \
  && apt-get clean
-ENV WEBMIN_VERSION=1.760
+ENV WEBMIN_VERSION=1.770
 RUN wget http://prdownloads.sourceforge.net/webadmin/webmin_${WEBMIN_VERSION}_all.deb \
  && dpkg -i webmin_${WEBMIN_VERSION}_all.deb \
  && rm -f webmin_${WEBMIN_VERSION}_all.deb
