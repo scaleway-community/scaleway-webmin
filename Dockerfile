@@ -1,10 +1,18 @@
-## -*- docker-image-name: "scaleway/webmin:latest" -*-
-FROM scaleway/ubuntu:trusty
+## -*- docker-image-name: "scaleway/python:latest" -*-
+FROM scaleway/ubuntu:amd64-trusty
+# following 'FROM' lines are used dynamically thanks do the image-builder
+# which dynamically update the Dockerfile if needed.
+#FROM scaleway/ubuntu:armhf-trusty       # arch=armv7l
+#FROM scaleway/ubuntu:arm64-trusty       # arch=arm64
+#FROM scaleway/ubuntu:i386-trusty        # arch=i386
+#FROM scaleway/ubuntu:mips-trusty        # arch=mips
+
+
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
 
 
 # Prepare rootfs for image-builder
-RUN /usr/local/sbin/builder-enter
+RUN /usr/local/sbin/scw-builder-enter
 
 
 RUN apt-get update \
@@ -85,6 +93,7 @@ RUN apt-get update \
     perl \
     python \
  && apt-get clean
+
 ENV WEBMIN_VERSION=1.770
 RUN wget http://prdownloads.sourceforge.net/webadmin/webmin_${WEBMIN_VERSION}_all.deb \
  && dpkg -i webmin_${WEBMIN_VERSION}_all.deb \
@@ -93,10 +102,10 @@ RUN wget http://prdownloads.sourceforge.net/webadmin/webmin_${WEBMIN_VERSION}_al
 RUN sed -i "s/smtpd_use_tls=yes/smtpd_use_tls=no/" /etc/postfix/main.cf \
  && sed -i "s/inet_interfaces = .*/inet_interfaces = localhost/" /etc/postfix/main.cf
 
-ADD ./patches/etc/ /etc/
-ADD ./patches/root/ /root/
-ADD ./patches/usr/local/ /usr/local/
+
+# patch rootfs
+ADD ./overlay/ /
 
 
 # Clean rootfs from image-builder
-RUN /usr/local/sbin/builder-leave
+RUN /usr/local/sbin/scw-builder-leave
