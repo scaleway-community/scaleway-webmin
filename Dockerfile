@@ -94,7 +94,7 @@ RUN apt-get update \
     python \
  && apt-get clean
 
-ENV WEBMIN_VERSION=1.770
+ENV WEBMIN_VERSION=1.791
 RUN wget http://prdownloads.sourceforge.net/webadmin/webmin_${WEBMIN_VERSION}_all.deb \
  && dpkg -i webmin_${WEBMIN_VERSION}_all.deb \
  && rm -f webmin_${WEBMIN_VERSION}_all.deb
