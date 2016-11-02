@@ -1,6 +1,6 @@
 NAME =			webmin
 VERSION =		latest
-VERSION_ALIASES =	1.791 1
+VERSION_ALIASES =	1.820 1
 TITLE =			Webmin
 DESCRIPTION =		Webmin
 SOURCE_URL =		https://github.com/scaleway-community/scaleway-webmin
@@ -10,7 +10,7 @@ DEFAULT_IMAGE_ARCH =	x86_64
 
 IMAGE_VOLUME_SIZE =	50G
 IMAGE_BOOTSCRIPT =	stable
-IMAGE_NAME =		Webmin 1.791
+IMAGE_NAME =		Webmin 1.820
 
 
 ## Image tools  (https://github.com/scaleway/image-tools)
